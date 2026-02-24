@@ -7,9 +7,9 @@ export default function Hero() {
   const [mounted, setMounted] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
   const { scrollY } = useScroll();
-  const y = useTransform(scrollY, [0, 500], [0, 150]);
-  const opacity = useTransform(scrollY, [0, 400], [1, 0]);
-  const scale = useTransform(scrollY, [0, 500], [1, 0.95]);
+  const y = useTransform(scrollY, [0, 1200], [0, 80]);
+  const opacity = useTransform(scrollY, [0, 1000], [1, 0]);
+  const scale = useTransform(scrollY, [0, 1200], [1, 0.97]);
 
   useEffect(() => {
     setMounted(true);

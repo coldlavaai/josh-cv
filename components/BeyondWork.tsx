@@ -13,7 +13,7 @@ export default function BeyondWork() {
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          viewport={{ once: true, amount: 0.1 }}
           transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
           className="text-center mb-14"
         >
@@ -34,7 +34,7 @@ export default function BeyondWork() {
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+            viewport={{ once: true, amount: 0.1 }}
             transition={{ duration: 0.7, delay: 0.1, ease: [0.25, 0.46, 0.45, 0.94] }}
             className="bg-navy rounded-xl sm:rounded-2xl p-5 sm:p-7 md:p-8 border border-gold/15 hover:border-gold/30 transition-all duration-500 hover:shadow-xl hover:-translate-y-1 group relative overflow-hidden"
           >
@@ -53,7 +53,7 @@ export default function BeyondWork() {
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+            viewport={{ once: true, amount: 0.1 }}
             transition={{ duration: 0.7, delay: 0.2, ease: [0.25, 0.46, 0.45, 0.94] }}
             className="bg-navy rounded-xl sm:rounded-2xl p-5 sm:p-7 md:p-8 border border-teal/15 hover:border-teal/30 transition-all duration-500 hover:shadow-xl hover:-translate-y-1 group relative overflow-hidden"
           >
@@ -72,7 +72,7 @@ export default function BeyondWork() {
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+            viewport={{ once: true, amount: 0.1 }}
             transition={{ duration: 0.7, delay: 0.3, ease: [0.25, 0.46, 0.45, 0.94] }}
             className="bg-navy rounded-xl sm:rounded-2xl p-5 sm:p-7 md:p-8 border border-gold/15 hover:border-gold/30 transition-all duration-500 hover:shadow-xl hover:-translate-y-1 group relative overflow-hidden"
           >
@@ -91,7 +91,7 @@ export default function BeyondWork() {
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+            viewport={{ once: true, amount: 0.1 }}
             transition={{ duration: 0.7, delay: 0.4, ease: [0.25, 0.46, 0.45, 0.94] }}
             className="bg-navy rounded-xl sm:rounded-2xl p-5 sm:p-7 md:p-8 border border-teal/15 hover:border-teal/30 transition-all duration-500 hover:shadow-xl hover:-translate-y-1 group relative overflow-hidden"
           >

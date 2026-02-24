@@ -67,7 +67,7 @@ export default function Certifications() {
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          viewport={{ once: true, amount: 0.1 }}
           transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
           className="text-center mb-16"
         >
@@ -89,7 +89,7 @@ export default function Certifications() {
               key={cert.name}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
+              viewport={{ once: true, amount: 0.1 }}
               transition={{
                 duration: 0.5,
                 delay: index * 0.08,
@@ -115,7 +115,7 @@ export default function Certifications() {
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          viewport={{ once: true, amount: 0.1 }}
           transition={{ duration: 0.8 }}
           className="glass-card rounded-xl sm:rounded-2xl md:rounded-3xl p-5 sm:p-8 md:p-10 border-gold/15 relative overflow-hidden"
         >
@@ -133,7 +133,7 @@ export default function Certifications() {
                 key={item.subject}
                 initial={{ opacity: 0, scale: 0.9 }}
                 whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
+                viewport={{ once: true, amount: 0.1 }}
                 transition={{ duration: 0.4, delay: index * 0.08 }}
                 className={`
                   text-center p-2.5 sm:p-4 rounded-lg sm:rounded-xl border backdrop-blur-sm
