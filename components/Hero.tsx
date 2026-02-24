@@ -98,17 +98,25 @@ export default function Hero() {
           </div>
         </motion.div>
 
-        {/* Quote */}
+        {/* Professional Bio */}
         <motion.div
           custom={2}
           initial="hidden"
           animate="visible"
           variants={stagger}
-          className="mt-8"
+          className="mt-10"
         >
-          <p className="font-inter text-sm md:text-base text-cream/50 max-w-2xl mx-auto leading-relaxed italic">
-            &ldquo;Award-winning automotive leader with 18+ years of diverse professional experience. From steel fabrication to group management, I bring resilience, adaptability, and a proven track record of driving operational excellence.&rdquo;
-          </p>
+          <div className="glass-card rounded-2xl p-6 md:p-8 max-w-3xl mx-auto text-left border-gold/10">
+            <p className="font-inter text-sm md:text-base text-cream/70 leading-relaxed mb-4">
+              A results-driven Group Manager with over 18 years of professional experience, currently overseeing all Isuzu operations across sales, service, parts and fleet. Proven track record of exceeding targets, managing budgets and leading high-performing teams in the automotive sector.
+            </p>
+            <p className="font-inter text-sm md:text-base text-cream/70 leading-relaxed mb-4">
+              Award-winning sales leader recognised across a 300+ person organisation for passion, performance and innovation. Experienced in manufacturer relationships, customer satisfaction strategy, retail and fleet management, and P&L accountability at group level.
+            </p>
+            <p className="font-inter text-sm md:text-base text-cream/70 leading-relaxed">
+              Background spanning structural steel fabrication, site supervision and self-employment brings a unique combination of resilience, technical understanding and hands-on leadership that sets me apart in the automotive industry.
+            </p>
+          </div>
         </motion.div>
 
         {/* Stats */}

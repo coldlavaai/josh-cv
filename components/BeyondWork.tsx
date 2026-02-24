@@ -44,7 +44,7 @@ export default function BeyondWork() {
               <div className="text-4xl mb-4">👨‍👩‍👦‍👦</div>
               <h3 className="font-playfair text-xl font-bold gradient-text mb-3">Family Man</h3>
               <p className="text-cream/55 text-sm leading-relaxed font-light">
-                Married with two children — a 4-year-old and a 10-month-old boy. Family drives everything I do and is the motivation behind my ambition and work ethic.
+                Married with two boys aged 10 and 6. Family drives everything I do and is the motivation behind my ambition and work ethic.
               </p>
             </div>
           </motion.div>
