@@ -58,7 +58,7 @@ export default function Certifications() {
   return (
     <section className="relative py-24 md:py-32 px-6 overflow-hidden">
       {/* Background */}
-      <div className="absolute inset-0 bg-navy/95" />
+      <div className="absolute inset-0 bg-navy-dark" />
       <div className="absolute inset-0 mesh-gradient opacity-50" />
       <div className="absolute inset-0 noise-overlay" />
 

@@ -24,7 +24,7 @@ export default function Hero() {
   };
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-navy-dark">
       {/* Premium gradient overlay */}
       <div className="absolute inset-0 bg-gradient-to-b from-navy-dark/40 via-transparent to-navy-dark/60" />
 
@@ -56,7 +56,7 @@ export default function Hero() {
       </div>
 
       {/* Main content */}
-      <motion.div style={{ y, opacity, scale }} className="relative z-10 text-center px-6 max-w-6xl mx-auto">
+      <motion.div style={{ y, opacity, scale }} className="relative z-10 text-center px-6 max-w-6xl mx-auto pb-24">
 
         {/* Name */}
         <motion.div
@@ -139,12 +139,12 @@ export default function Hero() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.8 + i * 0.1 }}
-                className="glass-card rounded-xl p-4 md:p-5 hover:border-gold/30 transition-all duration-500 group"
+                className="glass-card rounded-xl p-4 md:p-5 hover:border-gold/30 transition-all duration-500 group flex flex-col items-center justify-center min-h-[90px] md:min-h-[100px]"
               >
-                <div className="font-mono text-2xl md:text-3xl font-bold text-gold group-hover:scale-110 transition-transform duration-300">
+                <div className="font-mono text-2xl md:text-3xl font-bold text-gold group-hover:scale-110 transition-transform duration-300 leading-none">
                   {stat.value}
                 </div>
-                <div className="text-cream/50 text-[10px] md:text-xs mt-1.5 font-light tracking-wide uppercase">
+                <div className="text-cream/50 text-[10px] md:text-xs mt-2 font-light tracking-wide uppercase text-center">
                   {stat.label}
                 </div>
               </motion.div>
@@ -202,7 +202,7 @@ export default function Hero() {
       </motion.div>
 
       {/* Bottom gradient fade */}
-      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-cream/10 to-transparent" />
+      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-navy-dark to-transparent" />
     </section>
   );
 }

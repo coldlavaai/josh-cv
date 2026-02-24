@@ -99,8 +99,8 @@ export default function Journey() {
   return (
     <section id="journey" className="relative py-24 md:py-32 px-6 overflow-hidden">
       {/* Section background */}
-      <div className="absolute inset-0 bg-gradient-to-b from-cream/90 via-cream/95 to-cream/90" />
-      <div className="absolute inset-0 mesh-gradient" />
+      <div className="absolute inset-0 bg-gradient-to-b from-navy-dark via-navy to-navy-dark" />
+      <div className="absolute inset-0 mesh-gradient opacity-50" />
 
       <div className="max-w-6xl mx-auto relative z-10">
         {/* Section header */}
@@ -116,14 +116,14 @@ export default function Journey() {
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="inline-block px-4 py-1.5 rounded-full border border-navy/10 bg-navy/5 text-navy/60 text-xs font-mono tracking-[0.2em] uppercase mb-6"
+            className="inline-block px-4 py-1.5 rounded-full border border-gold/20 bg-gold/5 text-gold/70 text-xs font-mono tracking-[0.2em] uppercase mb-6"
           >
             Career Timeline
           </motion.span>
-          <h2 className="font-playfair text-4xl md:text-5xl lg:text-6xl font-bold text-navy mb-6">
+          <h2 className="font-playfair text-4xl md:text-5xl lg:text-6xl font-bold text-cream mb-6">
             The Journey
           </h2>
-          <p className="font-inter text-base md:text-lg text-navy/60 max-w-3xl mx-auto leading-relaxed">
+          <p className="font-inter text-base md:text-lg text-cream/50 max-w-3xl mx-auto leading-relaxed">
             From hands-on fabrication and voluntary coastguard service to leading a full automotive dealership — a career built on grit, adaptability, and relentless ambition
           </p>
           <div className="section-divider max-w-xs mx-auto mt-8" />
@@ -199,8 +199,8 @@ export default function Journey() {
               {/* Content card */}
               <div className={`flex-1 ${index % 2 === 0 ? 'md:pr-10' : 'md:pl-10'}`}>
                 <div className={`
-                  glass-card-light rounded-xl p-5 md:p-6
-                  border border-navy/10 hover:border-gold/30
+                  glass-card rounded-xl p-5 md:p-6
+                  hover:border-gold/30
                   transition-all duration-500 ease-out
                   hover:shadow-xl hover:shadow-gold/5 hover:-translate-y-1
                   group
@@ -212,19 +212,19 @@ export default function Journey() {
                     <div className="flex-1 min-w-0">
                       <div className={`
                         inline-block px-2.5 py-0.5 rounded-full text-[10px] font-mono font-bold mb-2 tracking-wider
-                        ${milestone.color === 'gold' ? 'bg-gold/10 text-gold-dark' : 'bg-teal/10 text-teal-dark'}
+                        ${milestone.color === 'gold' ? 'bg-gold/10 text-gold' : 'bg-teal/10 text-teal-light'}
                       `}>
                         {milestone.year}
                       </div>
-                      <h3 className="font-playfair text-base md:text-lg font-bold text-navy mb-0.5">
+                      <h3 className="font-playfair text-base md:text-lg font-bold text-cream mb-0.5">
                         {milestone.title}
                       </h3>
                       <div className={`text-xs font-medium mb-2 ${
-                        milestone.color === 'gold' ? 'text-gold-dark/70' : 'text-teal-dark/70'
+                        milestone.color === 'gold' ? 'text-gold/70' : 'text-teal-light/70'
                       }`}>
                         {milestone.role}
                       </div>
-                      <p className="text-navy/60 text-xs md:text-sm leading-relaxed">
+                      <p className="text-cream/50 text-xs md:text-sm leading-relaxed">
                         {milestone.description}
                       </p>
                     </div>

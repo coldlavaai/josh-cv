@@ -6,10 +6,10 @@ export default function BeyondWork() {
   return (
     <section className="relative py-24 md:py-32 px-6 overflow-hidden">
       {/* Background */}
-      <div className="absolute inset-0 bg-gradient-to-b from-cream/95 via-cream to-cream/95" />
-      <div className="absolute inset-0 mesh-gradient" />
+      <div className="absolute inset-0 bg-gradient-to-b from-navy via-navy-dark to-navy" />
+      <div className="absolute inset-0 mesh-gradient opacity-50" />
 
-      <div className="max-w-5xl mx-auto relative z-10">
+      <div className="max-w-6xl mx-auto relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -17,13 +17,13 @@ export default function BeyondWork() {
           transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
           className="text-center mb-14"
         >
-          <span className="inline-block px-4 py-1.5 rounded-full border border-navy/10 bg-navy/5 text-navy/60 text-xs font-mono tracking-[0.2em] uppercase mb-6">
+          <span className="inline-block px-4 py-1.5 rounded-full border border-gold/20 bg-gold/5 text-gold/70 text-xs font-mono tracking-[0.2em] uppercase mb-6">
             The Full Picture
           </span>
-          <h2 className="font-playfair text-4xl md:text-5xl lg:text-6xl font-bold text-navy mb-4">
+          <h2 className="font-playfair text-4xl md:text-5xl lg:text-6xl font-bold text-cream mb-4">
             Beyond Work
           </h2>
-          <p className="font-inter text-base md:text-lg text-navy/60 max-w-2xl mx-auto font-light">
+          <p className="font-inter text-base md:text-lg text-cream/50 max-w-2xl mx-auto font-light">
             The interests and values that shape who I am outside the dealership
           </p>
           <div className="section-divider max-w-xs mx-auto mt-8" />
