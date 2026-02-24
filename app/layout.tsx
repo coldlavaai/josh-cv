@@ -11,13 +11,13 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  title: "Joshua Hammett | Sales Manager & Automotive Professional",
-  description: "Experienced Sales Manager at AZUR ŠKODA (Birchwood Group) with 15+ years of professional experience spanning automotive sales, team management, and award-winning customer service.",
-  keywords: "sales manager, automotive, ŠKODA, Joshua Hammett, team management, award-winning",
+  title: "Joshua Hammett | Isuzu Group Manager & Automotive Leader",
+  description: "Experienced Isuzu Group Manager overseeing all operations including sales, service, and parts. 18+ years of diverse professional experience spanning automotive leadership, team management, and award-winning performance.",
+  keywords: "group manager, Isuzu, automotive, Joshua Hammett, team management, award-winning, sales leader",
   authors: [{ name: "Joshua Hammett" }],
   openGraph: {
-    title: "Joshua Hammett | Sales Manager & Automotive Professional",
-    description: "Award-winning Sales Manager with 15+ years of diverse professional experience",
+    title: "Joshua Hammett | Isuzu Group Manager & Automotive Leader",
+    description: "Award-winning automotive leader with 18+ years of diverse professional experience",
     type: "website",
   },
 };

@@ -4,6 +4,7 @@ import ByTheNumbers from '@/components/ByTheNumbers';
 import Awards from '@/components/Awards';
 import Skills from '@/components/Skills';
 import Certifications from '@/components/Certifications';
+import BeyondWork from '@/components/BeyondWork';
 import Contact from '@/components/Contact';
 
 export default function Home() {
@@ -15,6 +16,7 @@ export default function Home() {
       <Awards />
       <Skills />
       <Certifications />
+      <BeyondWork />
       <Contact />
     </main>
   );

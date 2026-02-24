@@ -46,24 +46,24 @@ export default function ByTheNumbers() {
     color: string;
   }> = [
     {
-      value: 15,
+      value: 18,
       suffix: '+',
       label: 'Years Experience',
       sublabel: 'Professional career since 2006',
       color: 'gold',
     },
     {
-      value: 7,
+      value: 8,
       suffix: '+',
-      label: 'Years in Auto Sales',
-      sublabel: 'From executive to manager',
+      label: 'Years in Automotive',
+      sublabel: 'From executive to group manager',
       color: 'teal',
     },
     {
-      value: 4,
+      value: 6,
       suffix: '+',
       label: 'Years Managing',
-      sublabel: 'Team of 4 sales executives',
+      sublabel: 'Teams, budgets & full P&L',
       color: 'gold',
     },
     {
@@ -75,49 +75,70 @@ export default function ByTheNumbers() {
   ];
 
   return (
-    <section className="py-16 px-6" style={{ backgroundColor: 'rgba(247, 243, 233, 0.9)' }}>
-      <div className="max-w-7xl mx-auto w-full">
+    <section className="relative py-24 md:py-32 px-6 overflow-hidden">
+      {/* Background */}
+      <div className="absolute inset-0 bg-gradient-to-b from-cream/95 via-cream to-cream/95" />
+      <div className="absolute inset-0 mesh-gradient" />
+
+      <div className="max-w-7xl mx-auto w-full relative z-10">
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-          className="text-center mb-10"
+          transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
+          className="text-center mb-16"
         >
-          <h2 className="font-playfair text-4xl md:text-5xl font-bold text-navy mb-4">
+          <span className="inline-block px-4 py-1.5 rounded-full border border-navy/10 bg-navy/5 text-navy/60 text-xs font-mono tracking-[0.2em] uppercase mb-6">
+            Track Record
+          </span>
+          <h2 className="font-playfair text-4xl md:text-5xl lg:text-6xl font-bold text-navy mb-4">
             By The Numbers
           </h2>
-          <p className="font-inter text-lg text-navy/70 max-w-3xl mx-auto">
+          <p className="font-inter text-base md:text-lg text-navy/60 max-w-2xl mx-auto">
             Quantifying a career built on consistent results and recognition
           </p>
+          <div className="section-divider max-w-xs mx-auto mt-8" />
         </motion.div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-5 md:gap-6">
           {stats.map((stat, index) => (
             <motion.div
               key={stat.label}
-              initial={{ opacity: 0, y: 50 }}
+              initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: index * 0.1 }}
+              transition={{
+                duration: 0.7,
+                delay: index * 0.12,
+                ease: [0.25, 0.46, 0.45, 0.94],
+              }}
               className={`
-                relative bg-navy rounded-2xl p-6 border-2
-                ${stat.color === 'gold' ? 'border-gold hover:border-gold/80 hover:shadow-gold/30' : 'border-teal hover:border-teal/80 hover:shadow-teal/30'}
-                hover:shadow-2xl hover:scale-110 hover:-translate-y-3
+                relative bg-navy rounded-2xl p-7 md:p-8 border
+                ${stat.color === 'gold' ? 'border-gold/20 hover:border-gold/50' : 'border-teal/20 hover:border-teal/50'}
+                hover:shadow-xl hover:-translate-y-2
                 transition-all duration-500 ease-out
                 overflow-hidden group cursor-default
               `}
             >
-              {/* Background gradient */}
+              {/* Gradient overlay on hover */}
               <div className={`
-                absolute inset-0 opacity-0 group-hover:opacity-20 transition-opacity duration-500
-                ${stat.color === 'gold' ? 'bg-gradient-to-br from-gold via-gold to-transparent' : 'bg-gradient-to-br from-teal via-teal to-transparent'}
+                absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500
+                ${stat.color === 'gold'
+                  ? 'bg-gradient-to-br from-gold/10 via-transparent to-transparent'
+                  : 'bg-gradient-to-br from-teal/10 via-transparent to-transparent'}
               `} />
+
+              {/* Top accent line */}
+              <div className={`absolute top-0 left-0 right-0 h-px ${
+                stat.color === 'gold'
+                  ? 'bg-gradient-to-r from-transparent via-gold/40 to-transparent'
+                  : 'bg-gradient-to-r from-transparent via-teal/40 to-transparent'
+              }`} />
 
               <div className="relative z-10">
                 <div className={`
                   font-mono text-5xl md:text-6xl font-bold mb-4
-                  ${stat.color === 'gold' ? 'text-gold' : 'text-teal'}
+                  ${stat.color === 'gold' ? 'gradient-text' : 'gradient-text-teal'}
                 `}>
                   <Counter
                     value={stat.value}
@@ -125,19 +146,13 @@ export default function ByTheNumbers() {
                     suffix={stat.suffix}
                   />
                 </div>
-                <h3 className="font-playfair text-2xl font-bold text-cream mb-2">
+                <h3 className="font-playfair text-xl md:text-2xl font-bold text-cream mb-2">
                   {stat.label}
                 </h3>
-                <p className="text-cream/70 text-sm">
+                <p className="text-cream/50 text-sm font-light">
                   {stat.sublabel}
                 </p>
               </div>
-
-              {/* Decorative corner */}
-              <div className={`
-                absolute top-0 right-0 w-20 h-20 opacity-10
-                ${stat.color === 'gold' ? 'bg-gold' : 'bg-teal'}
-              `} style={{ clipPath: 'polygon(100% 0, 100% 100%, 0 0)' }} />
             </motion.div>
           ))}
         </div>
@@ -147,31 +162,32 @@ export default function ByTheNumbers() {
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.8, delay: 0.4 }}
-          className="mt-12 bg-navy-light rounded-2xl p-8 md:p-12 border border-gold/20"
+          transition={{ duration: 0.8, delay: 0.3 }}
+          className="mt-12 bg-navy rounded-2xl md:rounded-3xl p-8 md:p-12 border border-gold/15 relative overflow-hidden"
         >
-          <div className="grid md:grid-cols-3 gap-8 text-center">
+          <div className="absolute inset-0 bg-gradient-to-r from-gold/5 via-transparent to-teal/5" />
+          <div className="relative z-10 grid md:grid-cols-3 gap-8 text-center">
             <div>
-              <div className="text-gold font-mono text-3xl font-bold mb-2">
+              <div className="gradient-text font-mono text-2xl md:text-3xl font-bold mb-3">
                 Multi-Brand
               </div>
-              <p className="text-cream/70">
-                Experience across ŠKODA, Suzuki, MG, Subaru & Mitsubishi dealerships
+              <p className="text-cream/50 text-sm font-light leading-relaxed">
+                Experience across ŠKODA, Isuzu, Suzuki, MG, Subaru & Mitsubishi
               </p>
             </div>
             <div>
-              <div className="text-teal font-mono text-3xl font-bold mb-2">
-                Full Spectrum
+              <div className="gradient-text-teal font-mono text-2xl md:text-3xl font-bold mb-3">
+                Full P&L
               </div>
-              <p className="text-cream/70">
-                From hands-on fabrication & welding to boardroom sales strategy & budgets
+              <p className="text-cream/50 text-sm font-light leading-relaxed">
+                Complete budget management with group-level operational responsibility
               </p>
             </div>
             <div>
-              <div className="text-gold font-mono text-3xl font-bold mb-2">
+              <div className="gradient-text font-mono text-2xl md:text-3xl font-bold mb-3">
                 100% Targets
               </div>
-              <p className="text-cream/70">
+              <p className="text-cream/50 text-sm font-light leading-relaxed">
                 Consistently hitting and exceeding all sales targets throughout career
               </p>
             </div>

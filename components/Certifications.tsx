@@ -56,42 +56,55 @@ export default function Certifications() {
   };
 
   return (
-    <section className="py-16 px-6" style={{ backgroundColor: 'rgba(26, 35, 50, 0.95)' }}>
-      <div className="max-w-7xl mx-auto">
+    <section className="relative py-24 md:py-32 px-6 overflow-hidden">
+      {/* Background */}
+      <div className="absolute inset-0 bg-navy/95" />
+      <div className="absolute inset-0 mesh-gradient opacity-50" />
+      <div className="absolute inset-0 noise-overlay" />
+
+      <div className="max-w-7xl mx-auto relative z-10">
         {/* Certifications */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-          className="text-center mb-10"
+          transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
+          className="text-center mb-16"
         >
-          <h2 className="font-playfair text-4xl md:text-5xl font-bold text-cream mb-4">
+          <span className="inline-block px-4 py-1.5 rounded-full border border-gold/20 bg-gold/5 text-gold/70 text-xs font-mono tracking-[0.2em] uppercase mb-6">
+            Qualifications
+          </span>
+          <h2 className="font-playfair text-4xl md:text-5xl lg:text-6xl font-bold text-cream mb-4">
             Certifications & Education
           </h2>
-          <p className="font-inter text-lg text-cream/70 max-w-3xl mx-auto">
+          <p className="font-inter text-base md:text-lg text-cream/50 max-w-2xl mx-auto font-light">
             Professional qualifications and academic achievements
           </p>
+          <div className="section-divider max-w-xs mx-auto mt-8" />
         </motion.div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-12">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-5 mb-14">
           {certifications.map((cert, index) => (
             <motion.div
               key={cert.name}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.08 }}
-              className="bg-navy-light rounded-xl p-5 border border-gold/20 hover:border-gold/50 transition-all duration-300 hover:shadow-lg group"
+              transition={{
+                duration: 0.5,
+                delay: index * 0.08,
+                ease: [0.25, 0.46, 0.45, 0.94],
+              }}
+              className="glass-card rounded-xl p-5 hover:border-gold/30 transition-all duration-500 hover:shadow-lg hover:-translate-y-1 group"
             >
               <div className="flex items-start gap-3">
-                <div className="text-3xl group-hover:scale-110 transition-transform flex-shrink-0">
+                <div className="text-2xl md:text-3xl group-hover:scale-110 transition-transform flex-shrink-0">
                   {cert.icon}
                 </div>
                 <div>
-                  <h3 className="font-mono text-gold font-bold text-lg">{cert.name}</h3>
-                  <p className="text-cream/50 text-xs mb-2">{cert.full}</p>
-                  <p className="text-cream/70 text-sm">{cert.description}</p>
+                  <h3 className="font-mono text-gold font-bold text-base md:text-lg">{cert.name}</h3>
+                  <p className="text-cream/30 text-[10px] mb-1.5 tracking-wider uppercase">{cert.full}</p>
+                  <p className="text-cream/50 text-xs md:text-sm font-light leading-relaxed">{cert.description}</p>
                 </div>
               </div>
             </motion.div>
@@ -104,31 +117,40 @@ export default function Certifications() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="bg-gradient-to-r from-navy-light via-navy to-navy-light rounded-2xl p-8 border-2 border-teal/30"
+          className="glass-card rounded-2xl md:rounded-3xl p-8 md:p-10 border-gold/15 relative overflow-hidden"
         >
-          <div className="text-center mb-6">
-            <h3 className="font-playfair text-2xl font-bold text-cream mb-1">🎓 {education.school}</h3>
-            <p className="text-teal font-mono">{education.years}</p>
+          <div className="absolute inset-0 bg-gradient-to-r from-teal/5 via-transparent to-teal/5" />
+          <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-teal/30 to-transparent" />
+
+          <div className="relative z-10 text-center mb-8">
+            <h3 className="font-playfair text-2xl md:text-3xl font-bold text-cream mb-2">🎓 {education.school}</h3>
+            <p className="gradient-text-teal font-mono text-sm">{education.years}</p>
           </div>
 
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-4">
+          <div className="relative z-10 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-3 md:gap-4">
             {education.grades.map((item, index) => (
               <motion.div
                 key={item.subject}
-                initial={{ opacity: 0, scale: 0.8 }}
+                initial={{ opacity: 0, scale: 0.9 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.4, delay: index * 0.08 }}
                 className={`
-                  text-center p-4 rounded-xl border
-                  ${item.grade === 'A*' ? 'border-gold bg-gold/10' : item.grade === 'B' ? 'border-teal/50 bg-teal/10' : 'border-cream/20 bg-cream/5'}
-                  hover:scale-105 transition-transform duration-300
+                  text-center p-4 rounded-xl border backdrop-blur-sm
+                  ${item.grade === 'A*'
+                    ? 'border-gold/30 bg-gold/8'
+                    : item.grade === 'B'
+                    ? 'border-teal/20 bg-teal/5'
+                    : 'border-cream/10 bg-cream/3'}
+                  hover:scale-105 transition-all duration-300
                 `}
               >
-                <div className={`font-mono text-3xl font-bold mb-1 ${item.grade === 'A*' ? 'text-gold' : item.grade === 'B' ? 'text-teal' : 'text-cream/70'}`}>
+                <div className={`font-mono text-2xl md:text-3xl font-bold mb-1 ${
+                  item.grade === 'A*' ? 'gradient-text' : item.grade === 'B' ? 'gradient-text-teal' : 'text-cream/50'
+                }`}>
                   {item.grade}
                 </div>
-                <div className="text-cream/70 text-xs">{item.subject}</div>
+                <div className="text-cream/50 text-[10px] md:text-xs font-light">{item.subject}</div>
               </motion.div>
             ))}
           </div>

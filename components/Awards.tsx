@@ -28,67 +28,86 @@ export default function Awards() {
   ];
 
   return (
-    <section className="py-16 px-6" style={{ backgroundColor: 'rgba(26, 35, 50, 0.95)' }}>
-      <div className="max-w-6xl mx-auto">
+    <section className="relative py-24 md:py-32 px-6 overflow-hidden">
+      {/* Background */}
+      <div className="absolute inset-0 bg-navy/95" />
+      <div className="absolute inset-0 mesh-gradient opacity-50" />
+      <div className="absolute inset-0 noise-overlay" />
+
+      <div className="max-w-6xl mx-auto relative z-10">
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-          className="text-center mb-12"
+          transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
+          className="text-center mb-16"
         >
-          <h2 className="font-playfair text-4xl md:text-5xl font-bold text-cream mb-4">
+          <span className="inline-block px-4 py-1.5 rounded-full border border-gold/20 bg-gold/5 text-gold/70 text-xs font-mono tracking-[0.2em] uppercase mb-6">
+            Recognition
+          </span>
+          <h2 className="font-playfair text-4xl md:text-5xl lg:text-6xl font-bold text-cream mb-4">
             Awards & Recognition
           </h2>
-          <p className="font-inter text-lg text-cream/70 max-w-3xl mx-auto">
+          <p className="font-inter text-base md:text-lg text-cream/50 max-w-2xl mx-auto font-light">
             Recognised at every level for going above and beyond
           </p>
+          <div className="section-divider max-w-xs mx-auto mt-8" />
         </motion.div>
 
-        <div className="grid md:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-3 gap-6 md:gap-8">
           {awards.map((award, index) => (
             <motion.div
               key={award.title}
-              initial={{ opacity: 0, y: 40, rotateY: -10 }}
-              whileInView={{ opacity: 1, y: 0, rotateY: 0 }}
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.7, delay: index * 0.15 }}
+              transition={{
+                duration: 0.7,
+                delay: index * 0.15,
+                ease: [0.25, 0.46, 0.45, 0.94],
+              }}
               className={`
-                relative bg-navy-light rounded-2xl p-8 border-2
-                ${award.color === 'gold' ? 'border-gold/40 hover:border-gold' : 'border-teal/40 hover:border-teal'}
-                hover:shadow-2xl hover:scale-[1.03] hover:-translate-y-2
+                relative glass-card rounded-2xl p-8 md:p-9
+                ${award.color === 'gold' ? 'hover:border-gold/40' : 'hover:border-teal/40'}
+                hover:shadow-xl hover:-translate-y-2
                 transition-all duration-500 ease-out
                 group overflow-hidden text-center
               `}
             >
-              {/* Glow effect */}
+              {/* Top accent */}
+              <div className={`absolute top-0 left-0 right-0 h-px ${
+                award.color === 'gold'
+                  ? 'bg-gradient-to-r from-transparent via-gold/30 to-transparent'
+                  : 'bg-gradient-to-r from-transparent via-teal/30 to-transparent'
+              }`} />
+
+              {/* Glow on hover */}
               <div className={`
-                absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500
-                ${award.color === 'gold' ? 'bg-gradient-to-br from-gold/10 via-transparent to-transparent' : 'bg-gradient-to-br from-teal/10 via-transparent to-transparent'}
+                absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700
+                ${award.color === 'gold'
+                  ? 'bg-gradient-to-br from-gold/8 via-transparent to-transparent'
+                  : 'bg-gradient-to-br from-teal/8 via-transparent to-transparent'}
               `} />
 
               {/* Trophy icon */}
-              <div className="relative z-10 text-6xl mb-6 group-hover:scale-125 transition-transform duration-500">
+              <div className="relative z-10 text-5xl md:text-6xl mb-6 group-hover:scale-110 transition-transform duration-500">
                 {award.icon}
               </div>
 
               <h3 className={`
-                relative z-10 font-playfair text-xl font-bold mb-2
-                ${award.color === 'gold' ? 'text-gold' : 'text-teal'}
+                relative z-10 font-playfair text-lg md:text-xl font-bold mb-2
+                ${award.color === 'gold' ? 'gradient-text' : 'gradient-text-teal'}
               `}>
                 {award.title}
               </h3>
 
-              <div className="relative z-10 text-cream/50 text-sm font-mono mb-4">
+              <div className="relative z-10 text-cream/30 text-xs font-mono mb-5 tracking-wider uppercase">
                 {award.org}
               </div>
 
-              <p className="relative z-10 text-cream/70 text-sm leading-relaxed">
+              <p className="relative z-10 text-cream/60 text-sm leading-relaxed font-light">
                 {award.description}
               </p>
-
-              {/* Decorative corner accent */}
-              <div className={`absolute top-0 right-0 w-16 h-16 opacity-20 ${award.color === 'gold' ? 'bg-gold' : 'bg-teal'}`} style={{ clipPath: 'polygon(100% 0, 100% 100%, 0 0)' }} />
             </motion.div>
           ))}
         </div>
