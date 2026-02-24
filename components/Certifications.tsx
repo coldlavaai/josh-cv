@@ -56,7 +56,7 @@ export default function Certifications() {
   };
 
   return (
-    <section className="relative py-24 md:py-32 px-6 overflow-hidden">
+    <section className="relative py-16 sm:py-24 md:py-32 px-4 sm:px-6 overflow-hidden">
       {/* Background */}
       <div className="absolute inset-0 bg-navy-dark" />
       <div className="absolute inset-0 mesh-gradient opacity-50" />
@@ -83,7 +83,7 @@ export default function Certifications() {
           <div className="section-divider max-w-xs mx-auto mt-8" />
         </motion.div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-5 mb-14">
+        <div className="grid grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4 md:gap-5 mb-10 sm:mb-14">
           {certifications.map((cert, index) => (
             <motion.div
               key={cert.name}
@@ -95,16 +95,16 @@ export default function Certifications() {
                 delay: index * 0.08,
                 ease: [0.25, 0.46, 0.45, 0.94],
               }}
-              className="glass-card rounded-xl p-5 hover:border-gold/30 transition-all duration-500 hover:shadow-lg hover:-translate-y-1 group"
+              className="glass-card rounded-xl p-3.5 sm:p-5 hover:border-gold/30 transition-all duration-500 hover:shadow-lg hover:-translate-y-1 group"
             >
-              <div className="flex items-start gap-3">
+              <div className="flex flex-col sm:flex-row items-start gap-2 sm:gap-3">
                 <div className="text-2xl md:text-3xl group-hover:scale-110 transition-transform flex-shrink-0">
                   {cert.icon}
                 </div>
-                <div>
-                  <h3 className="font-mono text-gold font-bold text-base md:text-lg">{cert.name}</h3>
-                  <p className="text-cream/30 text-[10px] mb-1.5 tracking-wider uppercase">{cert.full}</p>
-                  <p className="text-cream/50 text-xs md:text-sm font-light leading-relaxed">{cert.description}</p>
+                <div className="min-w-0">
+                  <h3 className="font-mono text-gold font-bold text-sm sm:text-base md:text-lg">{cert.name}</h3>
+                  <p className="text-cream/30 text-[9px] sm:text-[10px] mb-1.5 tracking-wider uppercase leading-tight">{cert.full}</p>
+                  <p className="text-cream/50 text-[11px] sm:text-xs md:text-sm font-light leading-relaxed">{cert.description}</p>
                 </div>
               </div>
             </motion.div>
@@ -117,17 +117,17 @@ export default function Certifications() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="glass-card rounded-2xl md:rounded-3xl p-8 md:p-10 border-gold/15 relative overflow-hidden"
+          className="glass-card rounded-xl sm:rounded-2xl md:rounded-3xl p-5 sm:p-8 md:p-10 border-gold/15 relative overflow-hidden"
         >
           <div className="absolute inset-0 bg-gradient-to-r from-teal/5 via-transparent to-teal/5" />
           <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-teal/30 to-transparent" />
 
-          <div className="relative z-10 text-center mb-8">
-            <h3 className="font-playfair text-2xl md:text-3xl font-bold text-cream mb-2">🎓 {education.school}</h3>
-            <p className="gradient-text-teal font-mono text-sm">{education.years}</p>
+          <div className="relative z-10 text-center mb-6 sm:mb-8">
+            <h3 className="font-playfair text-xl sm:text-2xl md:text-3xl font-bold text-cream mb-2">🎓 {education.school}</h3>
+            <p className="gradient-text-teal font-mono text-xs sm:text-sm">{education.years}</p>
           </div>
 
-          <div className="relative z-10 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-3 md:gap-4">
+          <div className="relative z-10 grid grid-cols-3 sm:grid-cols-3 md:grid-cols-6 gap-2 sm:gap-3 md:gap-4">
             {education.grades.map((item, index) => (
               <motion.div
                 key={item.subject}
@@ -136,7 +136,7 @@ export default function Certifications() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.4, delay: index * 0.08 }}
                 className={`
-                  text-center p-4 rounded-xl border backdrop-blur-sm
+                  text-center p-2.5 sm:p-4 rounded-lg sm:rounded-xl border backdrop-blur-sm
                   ${item.grade === 'A*'
                     ? 'border-gold/30 bg-gold/8'
                     : item.grade === 'B'
@@ -145,12 +145,12 @@ export default function Certifications() {
                   hover:scale-105 transition-all duration-300
                 `}
               >
-                <div className={`font-mono text-2xl md:text-3xl font-bold mb-1 ${
+                <div className={`font-mono text-xl sm:text-2xl md:text-3xl font-bold mb-0.5 sm:mb-1 ${
                   item.grade === 'A*' ? 'gradient-text' : item.grade === 'B' ? 'gradient-text-teal' : 'text-cream/50'
                 }`}>
                   {item.grade}
                 </div>
-                <div className="text-cream/50 text-[10px] md:text-xs font-light">{item.subject}</div>
+                <div className="text-cream/50 text-[9px] sm:text-[10px] md:text-xs font-light">{item.subject}</div>
               </motion.div>
             ))}
           </div>

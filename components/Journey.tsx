@@ -97,7 +97,7 @@ export default function Journey() {
   ];
 
   return (
-    <section id="journey" className="relative py-24 md:py-32 px-6 overflow-hidden">
+    <section id="journey" className="relative py-16 sm:py-24 md:py-32 px-4 sm:px-6 overflow-hidden">
       {/* Section background */}
       <div className="absolute inset-0 bg-gradient-to-b from-navy-dark via-navy to-navy-dark" />
       <div className="absolute inset-0 mesh-gradient opacity-50" />
@@ -109,7 +109,7 @@ export default function Journey() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
-          className="text-center mb-20"
+          className="text-center mb-12 md:mb-20"
         >
           <motion.span
             initial={{ opacity: 0, scale: 0.8 }}
@@ -137,9 +137,9 @@ export default function Journey() {
           transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
           className="mb-16"
         >
-          <div className="relative bg-navy rounded-2xl md:rounded-3xl p-8 md:p-10 border border-gold/30 glow-gold overflow-hidden group">
+          <div className="relative bg-navy rounded-xl sm:rounded-2xl md:rounded-3xl p-5 sm:p-8 md:p-10 border border-gold/30 glow-gold overflow-hidden group">
             {/* Shimmer effect */}
-            <div className="absolute inset-0 shimmer rounded-2xl md:rounded-3xl" />
+            <div className="absolute inset-0 shimmer rounded-xl sm:rounded-2xl md:rounded-3xl" />
             {/* Gold accent line */}
             <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-gold to-transparent" />
 
@@ -172,15 +172,15 @@ export default function Journey() {
           {milestones.slice(1).map((milestone, index) => (
             <motion.div
               key={index}
-              initial={{ opacity: 0, x: index % 2 === 0 ? -30 : 30, y: 20 }}
-              whileInView={{ opacity: 1, x: 0, y: 0 }}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: '-50px' }}
               transition={{
                 duration: 0.7,
                 delay: index * 0.06,
                 ease: [0.25, 0.46, 0.45, 0.94],
               }}
-              className={`relative flex items-start mb-6 md:mb-8 ${
+              className={`relative flex items-start mb-5 md:mb-8 ${
                 index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'
               } flex-row`}
             >
@@ -197,9 +197,9 @@ export default function Journey() {
               <div className="w-12 flex-shrink-0 md:hidden" />
 
               {/* Content card */}
-              <div className={`flex-1 ${index % 2 === 0 ? 'md:pr-10' : 'md:pl-10'}`}>
+              <div className={`flex-1 min-w-0 ${index % 2 === 0 ? 'md:pr-10' : 'md:pl-10'}`}>
                 <div className={`
-                  glass-card rounded-xl p-5 md:p-6
+                  glass-card rounded-xl p-4 sm:p-5 md:p-6
                   hover:border-gold/30
                   transition-all duration-500 ease-out
                   hover:shadow-xl hover:shadow-gold/5 hover:-translate-y-1
@@ -244,7 +244,7 @@ export default function Journey() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="mt-16 bg-navy rounded-2xl md:rounded-3xl p-8 md:p-10 border border-gold/20 overflow-hidden relative"
+          className="mt-12 md:mt-16 bg-navy rounded-xl sm:rounded-2xl md:rounded-3xl p-6 sm:p-8 md:p-10 border border-gold/20 overflow-hidden relative"
         >
           <div className="absolute inset-0 bg-gradient-to-r from-gold/5 via-transparent to-teal/5" />
           <div className="relative z-10 grid md:grid-cols-3 gap-8 text-cream">

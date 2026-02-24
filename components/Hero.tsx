@@ -5,6 +5,7 @@ import { useEffect, useState } from 'react';
 
 export default function Hero() {
   const [mounted, setMounted] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
   const { scrollY } = useScroll();
   const y = useTransform(scrollY, [0, 500], [0, 150]);
   const opacity = useTransform(scrollY, [0, 400], [1, 0]);
@@ -12,6 +13,10 @@ export default function Hero() {
 
   useEffect(() => {
     setMounted(true);
+    const checkMobile = () => setIsMobile(window.innerWidth < 768);
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
   }, []);
 
   const stagger = {
@@ -28,9 +33,9 @@ export default function Hero() {
       {/* Premium gradient overlay */}
       <div className="absolute inset-0 bg-gradient-to-b from-navy-dark/40 via-transparent to-navy-dark/60" />
 
-      {/* Floating particles */}
+      {/* Floating particles — reduced on mobile for performance */}
       <div className="absolute inset-0 overflow-hidden">
-        {mounted && [...Array(15)].map((_, i) => (
+        {mounted && [...Array(isMobile ? 6 : 15)].map((_, i) => (
           <motion.div
             key={i}
             className="absolute rounded-full"
@@ -56,7 +61,7 @@ export default function Hero() {
       </div>
 
       {/* Main content */}
-      <motion.div style={{ y, opacity, scale }} className="relative z-10 text-center px-6 max-w-6xl mx-auto pb-24">
+      <motion.div style={{ y, opacity, scale }} className="relative z-10 text-center px-4 sm:px-6 max-w-6xl mx-auto pb-20 md:pb-24">
 
         {/* Name */}
         <motion.div
@@ -70,10 +75,10 @@ export default function Hero() {
               Automotive Leadership
             </span>
           </div>
-          <h1 className="font-playfair text-5xl md:text-7xl lg:text-8xl xl:text-9xl font-bold text-cream mb-2 tracking-tight leading-[0.95]">
+          <h1 className="font-playfair text-4xl sm:text-5xl md:text-7xl lg:text-8xl xl:text-9xl font-bold text-cream mb-2 tracking-tight leading-[0.95]">
             Joshua
           </h1>
-          <h1 className="font-playfair text-5xl md:text-7xl lg:text-8xl xl:text-9xl font-bold gradient-text mb-8 tracking-tight leading-[0.95]">
+          <h1 className="font-playfair text-4xl sm:text-5xl md:text-7xl lg:text-8xl xl:text-9xl font-bold gradient-text mb-6 md:mb-8 tracking-tight leading-[0.95]">
             Hammett
           </h1>
         </motion.div>
@@ -106,7 +111,7 @@ export default function Hero() {
           variants={stagger}
           className="mt-10"
         >
-          <div className="glass-card rounded-2xl p-6 md:p-8 max-w-3xl mx-auto text-left border-gold/10">
+          <div className="glass-card rounded-xl sm:rounded-2xl p-5 sm:p-6 md:p-8 max-w-3xl mx-auto text-left border-gold/10">
             <p className="font-inter text-sm md:text-base text-cream/70 leading-relaxed mb-4">
               A results-driven Group Manager with over 18 years of professional experience, currently overseeing all Isuzu operations across sales, service, parts and fleet. Proven track record of exceeding targets, managing budgets and leading high-performing teams in the automotive sector.
             </p>
@@ -127,7 +132,7 @@ export default function Hero() {
           variants={stagger}
           className="mt-12"
         >
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4 max-w-4xl mx-auto">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-2.5 sm:gap-3 md:gap-4 max-w-4xl mx-auto">
             {[
               { value: '18+', label: 'Years Experience' },
               { value: '8+', label: 'Years in Automotive' },
@@ -139,12 +144,12 @@ export default function Hero() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.8 + i * 0.1 }}
-                className="glass-card rounded-xl p-4 md:p-5 hover:border-gold/30 transition-all duration-500 group flex flex-col items-center justify-center min-h-[90px] md:min-h-[100px]"
+                className="glass-card rounded-xl p-3 sm:p-4 md:p-5 hover:border-gold/30 transition-all duration-500 group flex flex-col items-center justify-center min-h-[80px] sm:min-h-[90px] md:min-h-[100px]"
               >
-                <div className="font-mono text-2xl md:text-3xl font-bold text-gold group-hover:scale-110 transition-transform duration-300 leading-none">
+                <div className="font-mono text-xl sm:text-2xl md:text-3xl font-bold text-gold group-hover:scale-110 transition-transform duration-300 leading-none">
                   {stat.value}
                 </div>
-                <div className="text-cream/50 text-[10px] md:text-xs mt-2 font-light tracking-wide uppercase text-center">
+                <div className="text-cream/50 text-[10px] md:text-xs mt-1.5 sm:mt-2 font-light tracking-wide uppercase text-center">
                   {stat.label}
                 </div>
               </motion.div>
@@ -162,7 +167,7 @@ export default function Hero() {
         >
           <a
             href="#journey"
-            className="group relative inline-flex items-center gap-3 px-8 py-4 rounded-full overflow-hidden transition-all duration-500 transform hover:scale-105"
+            className="group relative inline-flex items-center gap-2 sm:gap-3 px-6 sm:px-8 py-3.5 sm:py-4 rounded-full overflow-hidden transition-all duration-500 transform hover:scale-105 min-h-[44px]"
           >
             {/* Button background */}
             <div className="absolute inset-0 bg-gradient-to-r from-gold to-gold-dark rounded-full" />

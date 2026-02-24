@@ -1,8 +1,18 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import { useEffect, useState } from 'react';
 
 export default function BackgroundAnimation() {
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth < 768);
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+
   return (
     <div className="fixed inset-0 pointer-events-none overflow-hidden z-0">
       {/* Deep premium base gradient */}
@@ -11,9 +21,9 @@ export default function BackgroundAnimation() {
       {/* Mesh gradient overlay */}
       <div className="absolute inset-0 mesh-gradient" />
 
-      {/* Subtle premium grid */}
+      {/* Subtle premium grid — hidden on mobile for performance */}
       <div
-        className="absolute inset-0 opacity-[0.04]"
+        className="absolute inset-0 opacity-[0.04] hidden sm:block"
         style={{
           backgroundImage: `
             linear-gradient(to right, rgba(212, 175, 55, 0.5) 1px, transparent 1px),
@@ -23,8 +33,8 @@ export default function BackgroundAnimation() {
         }}
       />
 
-      {/* Abstract automotive-inspired SVG patterns */}
-      <svg className="absolute inset-0 w-full h-full opacity-[0.04]">
+      {/* Abstract automotive-inspired SVG patterns — hidden on mobile */}
+      <svg className="absolute inset-0 w-full h-full opacity-[0.04] hidden sm:block">
         {/* Elegant flowing curves */}
         <path d="M 0% 60% Q 25% 30%, 50% 60% T 100% 60%" stroke="#D4AF37" strokeWidth="1.5" fill="none" />
         <path d="M 0% 70% Q 35% 40%, 70% 70% T 100% 50%" stroke="#2C7A7B" strokeWidth="1" fill="none" />
@@ -44,45 +54,69 @@ export default function BackgroundAnimation() {
         ))}
       </svg>
 
-      {/* Primary glowing orb — gold */}
-      <motion.div
-        className="absolute w-[600px] h-[600px] rounded-full blur-[120px]"
-        style={{
-          top: '10%',
-          left: '-5%',
-          background: 'radial-gradient(circle, rgba(212, 175, 55, 0.12) 0%, transparent 70%)',
-          willChange: 'transform',
-        }}
-        animate={{ scale: [1, 1.15, 1], x: [0, 30, 0] }}
-        transition={{ duration: 20, repeat: Infinity, ease: 'easeInOut' }}
-      />
+      {/* Primary glowing orb — gold (smaller on mobile, no animation) */}
+      {isMobile ? (
+        <div
+          className="absolute w-[300px] h-[300px] rounded-full blur-[80px]"
+          style={{
+            top: '10%',
+            left: '-5%',
+            background: 'radial-gradient(circle, rgba(212, 175, 55, 0.1) 0%, transparent 70%)',
+          }}
+        />
+      ) : (
+        <motion.div
+          className="absolute w-[600px] h-[600px] rounded-full blur-[120px]"
+          style={{
+            top: '10%',
+            left: '-5%',
+            background: 'radial-gradient(circle, rgba(212, 175, 55, 0.12) 0%, transparent 70%)',
+            willChange: 'transform',
+          }}
+          animate={{ scale: [1, 1.15, 1], x: [0, 30, 0] }}
+          transition={{ duration: 20, repeat: Infinity, ease: 'easeInOut' }}
+        />
+      )}
 
-      {/* Secondary glowing orb — teal */}
-      <motion.div
-        className="absolute w-[500px] h-[500px] rounded-full blur-[100px]"
-        style={{
-          bottom: '10%',
-          right: '-5%',
-          background: 'radial-gradient(circle, rgba(44, 122, 123, 0.1) 0%, transparent 70%)',
-          willChange: 'transform',
-        }}
-        animate={{ scale: [1, 1.1, 1], y: [0, -20, 0] }}
-        transition={{ duration: 18, repeat: Infinity, ease: 'easeInOut', delay: 5 }}
-      />
+      {/* Secondary glowing orb — teal (smaller on mobile, no animation) */}
+      {isMobile ? (
+        <div
+          className="absolute w-[250px] h-[250px] rounded-full blur-[60px]"
+          style={{
+            bottom: '10%',
+            right: '-5%',
+            background: 'radial-gradient(circle, rgba(44, 122, 123, 0.08) 0%, transparent 70%)',
+          }}
+        />
+      ) : (
+        <motion.div
+          className="absolute w-[500px] h-[500px] rounded-full blur-[100px]"
+          style={{
+            bottom: '10%',
+            right: '-5%',
+            background: 'radial-gradient(circle, rgba(44, 122, 123, 0.1) 0%, transparent 70%)',
+            willChange: 'transform',
+          }}
+          animate={{ scale: [1, 1.1, 1], y: [0, -20, 0] }}
+          transition={{ duration: 18, repeat: Infinity, ease: 'easeInOut', delay: 5 }}
+        />
+      )}
 
-      {/* Tertiary accent orb */}
-      <motion.div
-        className="absolute w-[300px] h-[300px] rounded-full blur-[80px]"
-        style={{
-          top: '50%',
-          left: '50%',
-          transform: 'translate(-50%, -50%)',
-          background: 'radial-gradient(circle, rgba(212, 175, 55, 0.06) 0%, transparent 70%)',
-          willChange: 'transform',
-        }}
-        animate={{ scale: [1, 1.2, 1] }}
-        transition={{ duration: 25, repeat: Infinity, ease: 'easeInOut', delay: 8 }}
-      />
+      {/* Tertiary accent orb — desktop only */}
+      {!isMobile && (
+        <motion.div
+          className="absolute w-[300px] h-[300px] rounded-full blur-[80px]"
+          style={{
+            top: '50%',
+            left: '50%',
+            transform: 'translate(-50%, -50%)',
+            background: 'radial-gradient(circle, rgba(212, 175, 55, 0.06) 0%, transparent 70%)',
+            willChange: 'transform',
+          }}
+          animate={{ scale: [1, 1.2, 1] }}
+          transition={{ duration: 25, repeat: Infinity, ease: 'easeInOut', delay: 8 }}
+        />
+      )}
 
       {/* Noise texture for premium feel */}
       <div className="absolute inset-0 noise-overlay" />

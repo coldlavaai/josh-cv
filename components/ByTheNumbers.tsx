@@ -75,7 +75,7 @@ export default function ByTheNumbers() {
   ];
 
   return (
-    <section className="relative py-24 md:py-32 px-6 overflow-hidden">
+    <section className="relative py-16 sm:py-24 md:py-32 px-4 sm:px-6 overflow-hidden">
       {/* Background */}
       <div className="absolute inset-0 bg-gradient-to-b from-navy via-navy-dark to-navy" />
       <div className="absolute inset-0 mesh-gradient opacity-50" />
@@ -100,7 +100,7 @@ export default function ByTheNumbers() {
           <div className="section-divider max-w-xs mx-auto mt-8" />
         </motion.div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-5 md:gap-6">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-5 md:gap-6">
           {stats.map((stat, index) => (
             <motion.div
               key={stat.label}
@@ -113,7 +113,7 @@ export default function ByTheNumbers() {
                 ease: [0.25, 0.46, 0.45, 0.94],
               }}
               className={`
-                relative bg-navy rounded-2xl p-7 md:p-8 border
+                relative bg-navy rounded-xl sm:rounded-2xl p-5 sm:p-7 md:p-8 border
                 ${stat.color === 'gold' ? 'border-gold/20 hover:border-gold/50' : 'border-teal/20 hover:border-teal/50'}
                 hover:shadow-xl hover:-translate-y-2
                 transition-all duration-500 ease-out
@@ -137,7 +137,7 @@ export default function ByTheNumbers() {
 
               <div className="relative z-10">
                 <div className={`
-                  font-mono text-5xl md:text-6xl font-bold mb-4
+                  font-mono text-3xl sm:text-5xl md:text-6xl font-bold mb-2 sm:mb-4
                   ${stat.color === 'gold' ? 'gradient-text' : 'gradient-text-teal'}
                 `}>
                   <Counter
@@ -146,10 +146,10 @@ export default function ByTheNumbers() {
                     suffix={stat.suffix}
                   />
                 </div>
-                <h3 className="font-playfair text-xl md:text-2xl font-bold text-cream mb-2">
+                <h3 className="font-playfair text-base sm:text-xl md:text-2xl font-bold text-cream mb-1 sm:mb-2">
                   {stat.label}
                 </h3>
-                <p className="text-cream/50 text-sm font-light">
+                <p className="text-cream/50 text-xs sm:text-sm font-light hidden sm:block">
                   {stat.sublabel}
                 </p>
               </div>
@@ -163,31 +163,31 @@ export default function ByTheNumbers() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8, delay: 0.3 }}
-          className="mt-12 bg-navy rounded-2xl md:rounded-3xl p-8 md:p-12 border border-gold/15 relative overflow-hidden"
+          className="mt-8 sm:mt-12 bg-navy rounded-xl sm:rounded-2xl md:rounded-3xl p-6 sm:p-8 md:p-12 border border-gold/15 relative overflow-hidden"
         >
           <div className="absolute inset-0 bg-gradient-to-r from-gold/5 via-transparent to-teal/5" />
-          <div className="relative z-10 grid md:grid-cols-3 gap-8 text-center">
+          <div className="relative z-10 grid grid-cols-1 sm:grid-cols-3 gap-6 sm:gap-8 text-center">
             <div>
-              <div className="gradient-text font-mono text-2xl md:text-3xl font-bold mb-3">
+              <div className="gradient-text font-mono text-xl sm:text-2xl md:text-3xl font-bold mb-2 sm:mb-3">
                 Multi-Brand
               </div>
-              <p className="text-cream/50 text-sm font-light leading-relaxed">
+              <p className="text-cream/50 text-xs sm:text-sm font-light leading-relaxed">
                 Experience across ŠKODA, Isuzu, Suzuki, MG, Subaru & Mitsubishi
               </p>
             </div>
             <div>
-              <div className="gradient-text-teal font-mono text-2xl md:text-3xl font-bold mb-3">
+              <div className="gradient-text-teal font-mono text-xl sm:text-2xl md:text-3xl font-bold mb-2 sm:mb-3">
                 Full P&L
               </div>
-              <p className="text-cream/50 text-sm font-light leading-relaxed">
+              <p className="text-cream/50 text-xs sm:text-sm font-light leading-relaxed">
                 Complete budget management with group-level operational responsibility
               </p>
             </div>
             <div>
-              <div className="gradient-text font-mono text-2xl md:text-3xl font-bold mb-3">
+              <div className="gradient-text font-mono text-xl sm:text-2xl md:text-3xl font-bold mb-2 sm:mb-3">
                 100% Targets
               </div>
-              <p className="text-cream/50 text-sm font-light leading-relaxed">
+              <p className="text-cream/50 text-xs sm:text-sm font-light leading-relaxed">
                 Consistently hitting and exceeding all sales targets throughout career
               </p>
             </div>

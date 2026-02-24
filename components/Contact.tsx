@@ -30,7 +30,7 @@ export default function Contact() {
   ];
 
   return (
-    <section className="relative py-24 md:py-32 px-6 overflow-hidden">
+    <section className="relative py-16 sm:py-24 md:py-32 px-4 sm:px-6 overflow-hidden">
       {/* Background */}
       <div className="absolute inset-0 bg-navy-dark" />
       <div className="absolute inset-0 mesh-gradient opacity-50" />
@@ -56,7 +56,7 @@ export default function Contact() {
           <div className="section-divider max-w-xs mx-auto mt-8" />
         </motion.div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-5 mb-16">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 md:gap-5 mb-12 sm:mb-16">
           {contactInfo.map((info, index) => (
             <motion.div
               key={info.label}
@@ -72,22 +72,22 @@ export default function Contact() {
               {info.href ? (
                 <a
                   href={info.href}
-                  className="block glass-card rounded-2xl p-7 md:p-8 hover:border-gold/30 hover:shadow-xl hover:-translate-y-2 transition-all duration-500 ease-out group text-center relative overflow-hidden"
+                  className="block glass-card rounded-xl sm:rounded-2xl p-4 sm:p-7 md:p-8 hover:border-gold/30 hover:shadow-xl hover:-translate-y-2 transition-all duration-500 ease-out group text-center relative overflow-hidden min-h-[44px]"
                 >
                   <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-gold/20 to-transparent" />
                   <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-gradient-to-br from-gold/8 via-transparent to-transparent" />
-                  <div className="text-4xl md:text-5xl mb-4 group-hover:scale-110 transition-transform duration-500 relative z-10">
+                  <div className="text-3xl sm:text-4xl md:text-5xl mb-2 sm:mb-4 group-hover:scale-110 transition-transform duration-500 relative z-10">
                     {info.icon}
                   </div>
-                  <div className="gradient-text font-semibold mb-2 relative z-10 text-sm">{info.label}</div>
-                  <div className="text-cream/50 font-mono text-xs break-all relative z-10 font-light">{info.value}</div>
+                  <div className="gradient-text font-semibold mb-1 sm:mb-2 relative z-10 text-xs sm:text-sm">{info.label}</div>
+                  <div className="text-cream/50 font-mono text-[10px] sm:text-xs break-all relative z-10 font-light">{info.value}</div>
                 </a>
               ) : (
-                <div className="glass-card rounded-2xl p-7 md:p-8 text-center relative overflow-hidden">
+                <div className="glass-card rounded-xl sm:rounded-2xl p-4 sm:p-7 md:p-8 text-center relative overflow-hidden">
                   <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-gold/20 to-transparent" />
-                  <div className="text-4xl md:text-5xl mb-4">{info.icon}</div>
-                  <div className="gradient-text font-semibold mb-2 text-sm">{info.label}</div>
-                  <div className="text-cream/50 font-mono text-xs break-all font-light">{info.value}</div>
+                  <div className="text-3xl sm:text-4xl md:text-5xl mb-2 sm:mb-4">{info.icon}</div>
+                  <div className="gradient-text font-semibold mb-1 sm:mb-2 text-xs sm:text-sm">{info.label}</div>
+                  <div className="text-cream/50 font-mono text-[10px] sm:text-xs break-all font-light">{info.value}</div>
                 </div>
               )}
             </motion.div>

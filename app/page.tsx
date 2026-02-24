@@ -9,7 +9,7 @@ import Contact from '@/components/Contact';
 
 export default function Home() {
   return (
-    <main className="overflow-x-hidden">
+    <main className="overflow-x-hidden w-full max-w-[100vw]">
       <Hero />
       <Journey />
       <ByTheNumbers />

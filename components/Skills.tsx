@@ -87,7 +87,7 @@ export default function Skills() {
   ];
 
   return (
-    <section className="relative py-24 md:py-32 px-6 overflow-hidden">
+    <section className="relative py-16 sm:py-24 md:py-32 px-4 sm:px-6 overflow-hidden">
       {/* Background */}
       <div className="absolute inset-0 bg-gradient-to-b from-navy-dark via-navy to-navy-dark" />
       <div className="absolute inset-0 mesh-gradient opacity-50" />
@@ -112,7 +112,7 @@ export default function Skills() {
           <div className="section-divider max-w-xs mx-auto mt-8" />
         </motion.div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5 md:gap-6">
           {skillCategories.map((category, index) => (
             <motion.div
               key={category.title}
@@ -125,7 +125,7 @@ export default function Skills() {
                 ease: [0.25, 0.46, 0.45, 0.94],
               }}
               className={`
-                bg-navy rounded-2xl p-6 md:p-7 border
+                bg-navy rounded-xl sm:rounded-2xl p-5 sm:p-6 md:p-7 border
                 ${category.color === 'gold' ? 'border-gold/15 hover:border-gold/40' : 'border-teal/15 hover:border-teal/40'}
                 hover:shadow-xl hover:-translate-y-1
                 transition-all duration-500 ease-out cursor-default
@@ -158,18 +158,18 @@ export default function Skills() {
                 {category.title}
               </h3>
 
-              <div className="relative z-10 flex flex-wrap gap-2">
+              <div className="relative z-10 flex flex-wrap gap-1.5 sm:gap-2">
                 {category.skills.map((skill) => (
                   <span
                     key={skill}
                     className={`
-                      px-3 py-1.5 rounded-lg text-xs font-medium leading-tight
+                      px-2.5 sm:px-3 py-1 sm:py-1.5 rounded-lg text-[11px] sm:text-xs font-medium leading-tight
                       ${category.color === 'gold'
                         ? 'bg-gold/8 text-gold/80 border border-gold/15'
                         : 'bg-teal/8 text-teal/80 border border-teal/15'}
                       transition-all duration-300
                       hover:scale-105
-                      break-words max-w-full
+                      break-words
                     `}
                   >
                     {skill}

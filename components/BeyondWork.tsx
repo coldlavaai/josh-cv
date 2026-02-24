@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 
 export default function BeyondWork() {
   return (
-    <section className="relative py-24 md:py-32 px-6 overflow-hidden">
+    <section className="relative py-16 sm:py-24 md:py-32 px-4 sm:px-6 overflow-hidden">
       {/* Background */}
       <div className="absolute inset-0 bg-gradient-to-b from-navy via-navy-dark to-navy" />
       <div className="absolute inset-0 mesh-gradient opacity-50" />
@@ -29,20 +29,20 @@ export default function BeyondWork() {
           <div className="section-divider max-w-xs mx-auto mt-8" />
         </motion.div>
 
-        <div className="grid md:grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
           {/* Family */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.7, delay: 0.1, ease: [0.25, 0.46, 0.45, 0.94] }}
-            className="bg-navy rounded-2xl p-7 md:p-8 border border-gold/15 hover:border-gold/30 transition-all duration-500 hover:shadow-xl hover:-translate-y-1 group relative overflow-hidden"
+            className="bg-navy rounded-xl sm:rounded-2xl p-5 sm:p-7 md:p-8 border border-gold/15 hover:border-gold/30 transition-all duration-500 hover:shadow-xl hover:-translate-y-1 group relative overflow-hidden"
           >
             <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-gold/30 to-transparent" />
             <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-gradient-to-br from-gold/5 via-transparent to-transparent" />
             <div className="relative z-10">
-              <div className="text-4xl mb-4">👨‍👩‍👦‍👦</div>
-              <h3 className="font-playfair text-xl font-bold gradient-text mb-3">Family Man</h3>
+              <div className="text-3xl sm:text-4xl mb-3 sm:mb-4">👨‍👩‍👦‍👦</div>
+              <h3 className="font-playfair text-lg sm:text-xl font-bold gradient-text mb-2 sm:mb-3">Family Man</h3>
               <p className="text-cream/55 text-sm leading-relaxed font-light">
                 Married with two boys aged 10 and 6. Family drives everything I do and is the motivation behind my ambition and work ethic.
               </p>
@@ -55,13 +55,13 @@ export default function BeyondWork() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.7, delay: 0.2, ease: [0.25, 0.46, 0.45, 0.94] }}
-            className="bg-navy rounded-2xl p-7 md:p-8 border border-teal/15 hover:border-teal/30 transition-all duration-500 hover:shadow-xl hover:-translate-y-1 group relative overflow-hidden"
+            className="bg-navy rounded-xl sm:rounded-2xl p-5 sm:p-7 md:p-8 border border-teal/15 hover:border-teal/30 transition-all duration-500 hover:shadow-xl hover:-translate-y-1 group relative overflow-hidden"
           >
             <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-teal/30 to-transparent" />
             <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-gradient-to-br from-teal/5 via-transparent to-transparent" />
             <div className="relative z-10">
-              <div className="text-4xl mb-4">📸</div>
-              <h3 className="font-playfair text-xl font-bold gradient-text-teal mb-3">Photography & Media</h3>
+              <div className="text-3xl sm:text-4xl mb-3 sm:mb-4">📸</div>
+              <h3 className="font-playfair text-lg sm:text-xl font-bold gradient-text-teal mb-2 sm:mb-3">Photography & Media</h3>
               <p className="text-cream/55 text-sm leading-relaxed font-light">
                 Keen photographer (A* at GCSE) with a passion for visual storytelling. Occasionally works with a friend on freelance BBC journalism projects — filming, photography, and editorial write-ups.
               </p>
@@ -74,13 +74,13 @@ export default function BeyondWork() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.7, delay: 0.3, ease: [0.25, 0.46, 0.45, 0.94] }}
-            className="bg-navy rounded-2xl p-7 md:p-8 border border-gold/15 hover:border-gold/30 transition-all duration-500 hover:shadow-xl hover:-translate-y-1 group relative overflow-hidden"
+            className="bg-navy rounded-xl sm:rounded-2xl p-5 sm:p-7 md:p-8 border border-gold/15 hover:border-gold/30 transition-all duration-500 hover:shadow-xl hover:-translate-y-1 group relative overflow-hidden"
           >
             <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-gold/30 to-transparent" />
             <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-gradient-to-br from-gold/5 via-transparent to-transparent" />
             <div className="relative z-10">
-              <div className="text-4xl mb-4">⚓</div>
-              <h3 className="font-playfair text-xl font-bold gradient-text mb-3">Community Service</h3>
+              <div className="text-3xl sm:text-4xl mb-3 sm:mb-4">⚓</div>
+              <h3 className="font-playfair text-lg sm:text-xl font-bold gradient-text mb-2 sm:mb-3">Community Service</h3>
               <p className="text-cream/55 text-sm leading-relaxed font-light">
                 Former voluntary HM Coastguard Rescue Officer. Proud of the time spent serving the Selsey community through emergency response and search operations.
               </p>
@@ -93,13 +93,13 @@ export default function BeyondWork() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.7, delay: 0.4, ease: [0.25, 0.46, 0.45, 0.94] }}
-            className="bg-navy rounded-2xl p-7 md:p-8 border border-teal/15 hover:border-teal/30 transition-all duration-500 hover:shadow-xl hover:-translate-y-1 group relative overflow-hidden"
+            className="bg-navy rounded-xl sm:rounded-2xl p-5 sm:p-7 md:p-8 border border-teal/15 hover:border-teal/30 transition-all duration-500 hover:shadow-xl hover:-translate-y-1 group relative overflow-hidden"
           >
             <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-teal/30 to-transparent" />
             <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-gradient-to-br from-teal/5 via-transparent to-transparent" />
             <div className="relative z-10">
-              <div className="text-4xl mb-4">🌊</div>
-              <h3 className="font-playfair text-xl font-bold gradient-text-teal mb-3">Sussex Coast Living</h3>
+              <div className="text-3xl sm:text-4xl mb-3 sm:mb-4">🌊</div>
+              <h3 className="font-playfair text-lg sm:text-xl font-bold gradient-text-teal mb-2 sm:mb-3">Sussex Coast Living</h3>
               <p className="text-cream/55 text-sm leading-relaxed font-light">
                 Based in Bracklesham Bay, Chichester. Making the most of coastal life with the family — the perfect balance to a driven professional life.
               </p>

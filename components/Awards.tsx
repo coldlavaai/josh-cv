@@ -28,7 +28,7 @@ export default function Awards() {
   ];
 
   return (
-    <section className="relative py-24 md:py-32 px-6 overflow-hidden">
+    <section className="relative py-16 sm:py-24 md:py-32 px-4 sm:px-6 overflow-hidden">
       {/* Background */}
       <div className="absolute inset-0 bg-navy-dark" />
       <div className="absolute inset-0 mesh-gradient opacity-50" />
@@ -54,7 +54,7 @@ export default function Awards() {
           <div className="section-divider max-w-xs mx-auto mt-8" />
         </motion.div>
 
-        <div className="grid md:grid-cols-3 gap-6 md:gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6 md:gap-8">
           {awards.map((award, index) => (
             <motion.div
               key={award.title}
@@ -67,7 +67,7 @@ export default function Awards() {
                 ease: [0.25, 0.46, 0.45, 0.94],
               }}
               className={`
-                relative glass-card rounded-2xl p-8 md:p-9
+                relative glass-card rounded-xl sm:rounded-2xl p-6 sm:p-8 md:p-9
                 ${award.color === 'gold' ? 'hover:border-gold/40' : 'hover:border-teal/40'}
                 hover:shadow-xl hover:-translate-y-2
                 transition-all duration-500 ease-out
